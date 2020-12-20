@@ -1,0 +1,16 @@
+﻿@page
+@model Todos.Pages.AddModel
+@{
+    ViewData["Title"] = "create page";
+}
+
+<h4>Create a Todo</h4>
+<div style="padding:10px">
+    <form method="post">
+        <div className="form-group">
+            <label>Enter Todo</label>
+            <input type="text" class="form-control" asp-for="Todo.Action" autocomplete="off" required />
+            <input type="submit" class="btn btn-primary" style="margin-top:10px" value="Submit" />
+        </div>
+    </form>
+</div>

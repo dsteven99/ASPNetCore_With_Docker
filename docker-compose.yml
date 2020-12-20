@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  todo-aspnet:
+    build: .
+    ports:
+      - "80:80"
+    depends_on:
+      - todo-db
+    container_name: todo-aspnet
+
+  todo-db:
+    image: stellirin/postgres-windows
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./dbscripts:c:\docker-entrypoint-initdb.d
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: Spacebay99
+    container_name: todo-db

@@ -1,0 +1,32 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div className="pagePadding">
+    <h4>Todo Items</h4>
+    <a class="btn btn-link" asp-page="./Add">Add Todo</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Todo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var todo in Model.Todos)
+            {
+                <tr>
+                    <td width="5%" align="center">
+                        <form method="post">
+                            <input type="hidden" value="@todo.Id" name="Id" />
+                            <button class="btn"><i class="fas fa-trash"></i></button>
+                        </form>
+                    </td>
+                    <td width="90%">@todo.Action</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
