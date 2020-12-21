@@ -14,8 +14,12 @@ services:
     ports:
       - "5432:5432"
     volumes:
+      - database-data:c:\pgsql\data
       - ./dbscripts:c:\docker-entrypoint-initdb.d
     restart: always
     environment:
       POSTGRES_PASSWORD: Spacebay99
     container_name: todo-db
+
+volumes: 
+  database-data:
